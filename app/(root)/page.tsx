@@ -3,7 +3,7 @@ import BikeCard, { BikeCardType }  from "@/components/BikeCard";
 import { getBikes } from "@/db/queries";
 
 
-export const dynamic = "force-dynamic";
+// export const dynamic = "force-dynamic";
 
 export default async function Home({searchParams}:{
   searchParams: Promise<{query:string}>
