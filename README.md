@@ -1,5 +1,8 @@
 # BikeStore Web Application
 
+Hosted on Vercel, Demo:
+[Bike Store](https://bike-store-beta.vercel.app/)
+
 BikeStore is a web application for managing bike inventory and browsing bikes available in the store. It features CRUD functionality for bike entries, user authentication, and filtering options for easy navigation. The application is built with Next.js, Drizzle ORM, Neon PostgreSQL, and Tailwind CSS.
 
 ---
@@ -12,14 +15,10 @@ BikeStore is a web application for managing bike inventory and browsing bikes av
 - [Getting Started](#getting-started)
   - [Prerequisites](#prerequisites)
   - [Installation](#installation)
-  - [Environment Variables](#environment-variables)
 - [Database Setup](#database-setup)
   - [Schema Definition](#schema-definition)
   - [Running Migrations](#running-migrations)
 - [Available Scripts](#available-scripts)
-- [API Documentation](#api-documentation)
-- [Contributing](#contributing)
-- [License](#license)
 
 ---
 
@@ -42,6 +41,7 @@ BikeStore is a full-stack application that allows users to browse, filter, and m
 
 ## Project Structure
 
+```bash
 ├── components           # Reusable UI components
 ├── db                   # Database setup and schema definitions
 ├── lib                  # Helper functions and API functions
@@ -49,4 +49,67 @@ BikeStore is a full-stack application that allows users to browse, filter, and m
 ├── public               # Public assets (images, icons)
 ├── styles               # Global CSS and styling files
 └── README.md            # Project documentation
+```
+## Getting Started
+
+### Prerequisites
+
+- Node.js (>= 16.x)
+- PostgreSQL (Use Neon DB for cloud-hosted PostgreSQL)
+- NPM or Yarn package manager
+
+### Installation
+
+1. Clone the repository:
+```bash
+git clone https://github.com/yourusername/bikestore.git
+cd bikestore
+```
+2. Install dependencies:
+```
+npm install
+or
+yarn install
+```
+3. Set up environment variables: Create a .env.local file in the root directory and add the following environment variables:
+```
+DATABASE_URL=your_neon_database_url
+AUTH_SECRET=your_oauth_secret
+AUTH_GITHUB_ID=your_github_oauth_id
+AUTH_GITHUB_SECRET=your_github_oauth_secret
+```
+## Database Setup
+
+### Schema Definition 
+The database schema is defined in db/schema.ts. The main bikes table includes fields such as:
+```
+    id: Unique identifier for each bike
+    name: Bike name
+    image: URL to the bike's image
+    price: Price of the bike
+    description: Description of the bike
+    type: Type/category of bike (e.g., Mountain, Electric)
+    quantity: Number of bikes available
+    rating: Average rating of the bike
+```
+
+### Running Migrations
+1. Generate migrations using Drizzle's CLI:
+```
+drizzle-kit generate
+```
+2. Run migrations:
+```
+drizzle-kit push
+```
+
+## Available Scripts
+In the project directory, you can run:
+```
+    npm run dev: Runs the app in development mode at http://localhost:3000
+    npm run build: Builds the app for production
+    npm run start: Starts the production build
+    db:generate: Generates migration files
+    db:migrate: Applies migration files to the database
+```
 
