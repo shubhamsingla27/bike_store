@@ -68,7 +68,7 @@
     }
 
     .card_grid {
-        @apply grid md:grid-cols-3 sm:grid-cols-2 gap-5;
+        @apply grid md:grid-cols-3 sm:grid-cols-2 gap-8;
     }
 
     .card_grid-sm {
@@ -105,7 +105,7 @@
         @apply size-[50px] rounded-full bg-black flex justify-center items-center !important;
     }
 
-    /* startupcard */
+    /* bikecard */
     .bike-card {
         @apply bg-white border-[5px] border-black py-6 px-5 rounded-[22px] shadow-200 hover:border-primary transition-all duration-500 hover:shadow-300 hover:bg-primary-100;
     }
@@ -113,6 +113,9 @@
     .bike-card_desc {
         @apply font-normal text-[16px] line-clamp-2 my-3 text-black-100 break-all;
     }
+    .bike-card_img {
+        @apply w-full h-[164px] rounded-[10px] object-cover;
+      }
 
     /* bikeform */
     .bike-form {

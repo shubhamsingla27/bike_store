@@ -137,9 +137,9 @@ const BikeForm: FC<BikeFormProps>=({mode, bike}) => {
             />
             <TooltipProvider delayDuration={0}>
                 <Tooltip>
-                    <TooltipTrigger><SquarePlus onClick={addRandomBikeURL} className=' size-8' /></TooltipTrigger>
+                    <TooltipTrigger><SquarePlus onClick={addRandomBikeURL} className=' size-12 mt-3' /></TooltipTrigger>
                     <TooltipContent>
-                    <p>Add random bike image url</p>
+                    <p className='text-white'>Add random bike image url</p>
                     </TooltipContent>
                 </Tooltip>
             </TooltipProvider>

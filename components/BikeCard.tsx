@@ -25,7 +25,7 @@ const BikeCard = async ({bike}:{bike:BikeCardType}) => {
             <h3 className='text-26-semibold line-clamp-1'>{name}</h3>
             <p className='text-26-semibold'>{`$${price}`}</p>
         </div>
-        <Image src={image} alt={name} width={3552} height={2368} className='rounded-lg' />
+        <img src={image} alt={name} className='rounded-lg bike-card_img' />
         <p className='bike-card_desc'>{description}</p>
         <div className='flex-between gap-5'>
             <p className='text-18-semibold'>{`Available: ${quantity}`}</p>
