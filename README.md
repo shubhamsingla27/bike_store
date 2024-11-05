@@ -1,36 +1,52 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# BikeStore Web Application
 
-## Getting Started
+BikeStore is a web application for managing bike inventory and browsing bikes available in the store. It features CRUD functionality for bike entries, user authentication, and filtering options for easy navigation. The application is built with Next.js, Drizzle ORM, Neon PostgreSQL, and Tailwind CSS.
 
-First, run the development server:
+---
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## Table of Contents
+- [Project Overview](#project-overview)
+- [Features](#features)
+- [Technologies Used](#technologies-used)
+- [Project Structure](#project-structure)
+- [Getting Started](#getting-started)
+  - [Prerequisites](#prerequisites)
+  - [Installation](#installation)
+  - [Environment Variables](#environment-variables)
+- [Database Setup](#database-setup)
+  - [Schema Definition](#schema-definition)
+  - [Running Migrations](#running-migrations)
+- [Available Scripts](#available-scripts)
+- [API Documentation](#api-documentation)
+- [Contributing](#contributing)
+- [License](#license)
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+---
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Project Overview
+BikeStore is a full-stack application that allows users to browse, filter, and manage an inventory of bikes. It is designed to be user-friendly with a responsive UI and supports real-time data updates.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Features
+- **CRUD Operations:** Add, view, edit, and delete bikes from the store inventory.
+- **Search and Filter:** Filter bikes by name and type.
+- **User Authentication:** Secure user authentication using NextAuth.
+- **Responsive Design:** Built with Tailwind CSS for mobile-friendly responsiveness.
+- **Database Integration:** Uses Neon PostgreSQL as the database with Drizzle ORM for database interaction.
 
-## Learn More
+## Technologies Used
+- **Frontend:** Next.js, React, Tailwind CSS
+- **Backend:** Next.js API Routes, Drizzle ORM
+- **Database:** Neon PostgreSQL
+- **Authentication:** NextAuth
+- **Deployment:** Vercel, Neon DB
 
-To learn more about Next.js, take a look at the following resources:
+## Project Structure
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+├── components           # Reusable UI components
+├── db                   # Database setup and schema definitions
+├── lib                  # Helper functions and API functions
+├── pages                # Next.js pages and API routes
+├── public               # Public assets (images, icons)
+├── styles               # Global CSS and styling files
+└── README.md            # Project documentation
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
