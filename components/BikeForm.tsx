@@ -2,8 +2,9 @@
 import React, {useState, useActionState, FC} from 'react'
 import { Input } from './ui/input'
 import { Textarea } from './ui/textarea'
+import { TooltipProvider, Tooltip, TooltipTrigger, TooltipContent } from './ui/tooltip'
 import { Button } from './ui/button'
-import { Send } from 'lucide-react'
+import { Send, SquarePlus } from 'lucide-react'
 import { formSchema } from '@/lib/validations'
 import { z } from 'zod'
 import { useToast } from '@/hooks/use-toast'
@@ -30,6 +31,25 @@ const BikeForm: FC<BikeFormProps>=({mode, bike}) => {
     const {toast} = useToast()
 
     const router = useRouter()
+
+    const addRandomBikeURL = async () => {
+        try {
+            const response = await fetch(`https://api.unsplash.com/photos/random?query=bike&client_id=RJ9nVaPKpuQq_F19sFOSCVF6ovy5vk5ecuuxYSmDQeo`);
+            const data = await response.json();
+            const imageUrl = data.urls.regular;
+            const imageInput = document.querySelector('input[name="image"]');
+            if (imageInput) {
+                imageInput.value = imageUrl;
+            }
+        } catch (error) {
+            console.error('Error fetching random bike image:', error);
+            toast({
+                title: 'Error',
+                description: 'Could not fetch a random bike image. Please try again later.',
+                variant: 'destructive',
+            });
+        }
+    };
 
     const handleSubmit = async (prevState:any, formData:FormData) => {
         try{
@@ -106,14 +126,25 @@ const BikeForm: FC<BikeFormProps>=({mode, bike}) => {
         </div>
         <div>
             <label htmlFor='image' className='bike-form_label'>ImageURL</label>
+            <div className='flex items-center relative'>
             <Input
                 id='image'
                 name='image'
                 placeholder='Image URL'
                 defaultValue={bike?.image || ""}
-                className='bike-form_input'
+                className='bike-form_input w-[calc(100%-3rem)]'
                 required
             />
+            <TooltipProvider delayDuration={0}>
+                <Tooltip>
+                    <TooltipTrigger><SquarePlus onClick={addRandomBikeURL} className=' size-8' /></TooltipTrigger>
+                    <TooltipContent>
+                    <p>Add random bike image url</p>
+                    </TooltipContent>
+                </Tooltip>
+            </TooltipProvider>
+            
+            </div>
             {errors.image && <p className='bike-form_error'>{errors.image}</p>}
         </div>
         <div>
